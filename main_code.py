@@ -1,16 +1,23 @@
 import serial
+import time
+
+
 
 # Open the serial connection
-ser = serial.Serial('COM9', 9600,bytesize=8, stopbits=1,rtscts=True,xonxoff=True)  # Replace 'COM1' with the appropriate port and '9600' with the baud rate
+ser = serial.Serial('COM9', 9600)  # Replace 'COM1' with the appropriate port and '9600' with the baud rate
+command = "\W"  # Replace with the command/query to request weight from the scale
 
+while True:
+    
 # Send command to request weight
-command = "I0"  # Replace with the command/query to request weight from the scale
-command_bytes = command.encode()
-ser.write(command_bytes)
+    
+    command_bytes = command.encode()
+    ser.write(command_bytes)
+    time.sleep(0.5)
 
 # Read response from the scale
-response = ser.readline().decode().strip()
-print("Scale response:", response)
+    response = str(ser.readline().decode().strip())
+    print("Scale response:", response)
 
 # Close the serial connection
-ser.close()
+
