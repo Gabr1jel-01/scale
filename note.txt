@@ -1,4 +1,0 @@
-note
-
-
-Trebam imati tri vrijednosti ( masa, vrijeme, broj ocitanja\iteracije, )
